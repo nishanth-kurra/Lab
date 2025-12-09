@@ -6,8 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" id="myid" placeholder="Enter number">
+    <br>
+    <br>
+    
     <script>
-        let a = -5;
+      function checkPrime(){
+        let a =parseInt(document.getElementById("myid").value)
         let isPrime=true;
         if(a<2){
             isPrime=false;
@@ -24,6 +29,8 @@
         else{
             document.writeln(`${a} is not a Prime number`)
         }
+      }
     </script>
+<button onclick=checkPrime();>Click Me</button>
 </body>
 </html>
