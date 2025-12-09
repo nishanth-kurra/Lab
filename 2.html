@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grade Calculator</title>
 </head>
 <body>
+    
+    <h3>Enter Three Marks:</h3>
+
+    <input type="number" id="m1" placeholder="Mark 1"><br><br>
+    <input type="number" id="m2" placeholder="Mark 2"><br><br>
+    <input type="number" id="m3" placeholder="Mark 3"><br><br>
+
+    <button onclick="calcGrade()">Calculate</button>
+
+    <p id="result"></p>
+
     <script>
-        let grade
-        let a=40
-        let b=65
-        let c=75
-        let avg=(a+b+c)/3
-        if(avg>=90){
-            grade="A"
+        function calcGrade() {
+            let a = parseFloat(document.getElementById("m1").value);
+            let b = parseFloat(document.getElementById("m2").value);
+            let c = parseFloat(document.getElementById("m3").value);
+
+            let avg = (a + b + c) / 3;
+            let grade;
+
+            if (avg >= 90) {
+                grade = "A";
+            } else if (avg >= 75) {
+                grade = "B";
+            } else if (avg >= 50) {
+                grade = "C";
+            } else {
+                grade = "F";
+            }
+
+            document.getElementById("result").innerHTML =
+                `Average is ${avg.toFixed(2)} <br> Grade is ${grade}`;
         }
-        else if(avg>=75){
-            grade="B"
-        }
-        else if(avg>=50){
-            grade="C"
-        }
-        else{
-            grade="F"
-        }
-        document.writeln(`avg is ${avg}`)
-        document.writeln(`Grade is ${grade}`)
     </script>
+
 </body>
 </html>
